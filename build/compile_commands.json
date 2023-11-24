@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build -I/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny -I/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/Sudoku_horny_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -g -fPIC -std=gnu++11 -o CMakeFiles/Sudoku_horny.dir/Sudoku_horny_autogen/mocs_compilation.cpp.o -c /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/Sudoku_horny_autogen/mocs_compilation.cpp",
+  "file": "/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/Sudoku_horny_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build -I/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny -I/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/Sudoku_horny_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -g -fPIC -std=gnu++11 -o CMakeFiles/Sudoku_horny.dir/main.cpp.o -c /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/main.cpp",
+  "file": "/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/main.cpp"
+},
+{
+  "directory": "/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build -I/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny -I/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/Sudoku_horny_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -g -fPIC -std=gnu++11 -o CMakeFiles/Sudoku_horny.dir/mainwindow.cpp.o -c /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/mainwindow.cpp",
+  "file": "/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/mainwindow.cpp"
+}
+]

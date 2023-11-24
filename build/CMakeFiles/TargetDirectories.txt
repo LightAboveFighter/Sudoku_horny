@@ -1,0 +1,4 @@
+/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CMakeFiles/Sudoku_horny.dir
+/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CMakeFiles/edit_cache.dir
+/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CMakeFiles/rebuild_cache.dir
+/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CMakeFiles/Sudoku_horny_autogen.dir
