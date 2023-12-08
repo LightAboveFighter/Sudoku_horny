@@ -65,6 +65,36 @@ CMAKE_BINARY_DIR = /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
+	/usr/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
+
+# Special rule for the target package
+package/fast: package
+.PHONY : package/fast
+
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+.PHONY : package_source/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -117,61 +147,508 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Sudoku_horny
+# Target rules for targets named Experimental
 
 # Build rule for target.
-Sudoku_horny: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Sudoku_horny
-.PHONY : Sudoku_horny
+Experimental: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Experimental
+.PHONY : Experimental
 
 # fast build rule for target.
-Sudoku_horny/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/build
-.PHONY : Sudoku_horny/fast
+Experimental/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
+.PHONY : Experimental/fast
 
 #=============================================================================
-# Target rules for targets named Sudoku_horny_autogen
+# Target rules for targets named Nightly
 
 # Build rule for target.
-Sudoku_horny_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Sudoku_horny_autogen
-.PHONY : Sudoku_horny_autogen
+Nightly: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Nightly
+.PHONY : Nightly
 
 # fast build rule for target.
-Sudoku_horny_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny_autogen.dir/build.make CMakeFiles/Sudoku_horny_autogen.dir/build
-.PHONY : Sudoku_horny_autogen/fast
+Nightly/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/build
+.PHONY : Nightly/fast
 
-Sudoku_horny_autogen/mocs_compilation.o: Sudoku_horny_autogen/mocs_compilation.cpp.o
-.PHONY : Sudoku_horny_autogen/mocs_compilation.o
+#=============================================================================
+# Target rules for targets named Continuous
+
+# Build rule for target.
+Continuous: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Continuous
+.PHONY : Continuous
+
+# fast build rule for target.
+Continuous/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Continuous.dir/build.make CMakeFiles/Continuous.dir/build
+.PHONY : Continuous/fast
+
+#=============================================================================
+# Target rules for targets named NightlyMemoryCheck
+
+# Build rule for target.
+NightlyMemoryCheck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyMemoryCheck
+.PHONY : NightlyMemoryCheck
+
+# fast build rule for target.
+NightlyMemoryCheck/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/build
+.PHONY : NightlyMemoryCheck/fast
+
+#=============================================================================
+# Target rules for targets named NightlyStart
+
+# Build rule for target.
+NightlyStart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyStart
+.PHONY : NightlyStart
+
+# fast build rule for target.
+NightlyStart/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyStart.dir/build.make CMakeFiles/NightlyStart.dir/build
+.PHONY : NightlyStart/fast
+
+#=============================================================================
+# Target rules for targets named NightlyUpdate
+
+# Build rule for target.
+NightlyUpdate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyUpdate
+.PHONY : NightlyUpdate
+
+# fast build rule for target.
+NightlyUpdate/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/build
+.PHONY : NightlyUpdate/fast
+
+#=============================================================================
+# Target rules for targets named NightlyConfigure
+
+# Build rule for target.
+NightlyConfigure: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyConfigure
+.PHONY : NightlyConfigure
+
+# fast build rule for target.
+NightlyConfigure/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/build
+.PHONY : NightlyConfigure/fast
+
+#=============================================================================
+# Target rules for targets named NightlyBuild
+
+# Build rule for target.
+NightlyBuild: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyBuild
+.PHONY : NightlyBuild
+
+# fast build rule for target.
+NightlyBuild/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/build
+.PHONY : NightlyBuild/fast
+
+#=============================================================================
+# Target rules for targets named NightlyTest
+
+# Build rule for target.
+NightlyTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyTest
+.PHONY : NightlyTest
+
+# fast build rule for target.
+NightlyTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyTest.dir/build.make CMakeFiles/NightlyTest.dir/build
+.PHONY : NightlyTest/fast
+
+#=============================================================================
+# Target rules for targets named NightlyCoverage
+
+# Build rule for target.
+NightlyCoverage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyCoverage
+.PHONY : NightlyCoverage
+
+# fast build rule for target.
+NightlyCoverage/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyCoverage.dir/build.make CMakeFiles/NightlyCoverage.dir/build
+.PHONY : NightlyCoverage/fast
+
+#=============================================================================
+# Target rules for targets named NightlyMemCheck
+
+# Build rule for target.
+NightlyMemCheck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyMemCheck
+.PHONY : NightlyMemCheck
+
+# fast build rule for target.
+NightlyMemCheck/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyMemCheck.dir/build.make CMakeFiles/NightlyMemCheck.dir/build
+.PHONY : NightlyMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named NightlySubmit
+
+# Build rule for target.
+NightlySubmit: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlySubmit
+.PHONY : NightlySubmit
+
+# fast build rule for target.
+NightlySubmit/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/build
+.PHONY : NightlySubmit/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalStart
+
+# Build rule for target.
+ExperimentalStart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalStart
+.PHONY : ExperimentalStart
+
+# fast build rule for target.
+ExperimentalStart/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/build
+.PHONY : ExperimentalStart/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalUpdate
+
+# Build rule for target.
+ExperimentalUpdate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalUpdate
+.PHONY : ExperimentalUpdate
+
+# fast build rule for target.
+ExperimentalUpdate/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalUpdate.dir/build.make CMakeFiles/ExperimentalUpdate.dir/build
+.PHONY : ExperimentalUpdate/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalConfigure
+
+# Build rule for target.
+ExperimentalConfigure: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalConfigure
+.PHONY : ExperimentalConfigure
+
+# fast build rule for target.
+ExperimentalConfigure/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalConfigure.dir/build.make CMakeFiles/ExperimentalConfigure.dir/build
+.PHONY : ExperimentalConfigure/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalBuild
+
+# Build rule for target.
+ExperimentalBuild: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalBuild
+.PHONY : ExperimentalBuild
+
+# fast build rule for target.
+ExperimentalBuild/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalBuild.dir/build.make CMakeFiles/ExperimentalBuild.dir/build
+.PHONY : ExperimentalBuild/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalTest
+
+# Build rule for target.
+ExperimentalTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalTest
+.PHONY : ExperimentalTest
+
+# fast build rule for target.
+ExperimentalTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalTest.dir/build.make CMakeFiles/ExperimentalTest.dir/build
+.PHONY : ExperimentalTest/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalCoverage
+
+# Build rule for target.
+ExperimentalCoverage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalCoverage
+.PHONY : ExperimentalCoverage
+
+# fast build rule for target.
+ExperimentalCoverage/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalCoverage.dir/build.make CMakeFiles/ExperimentalCoverage.dir/build
+.PHONY : ExperimentalCoverage/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalMemCheck
+
+# Build rule for target.
+ExperimentalMemCheck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalMemCheck
+.PHONY : ExperimentalMemCheck
+
+# fast build rule for target.
+ExperimentalMemCheck/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalMemCheck.dir/build.make CMakeFiles/ExperimentalMemCheck.dir/build
+.PHONY : ExperimentalMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalSubmit
+
+# Build rule for target.
+ExperimentalSubmit: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalSubmit
+.PHONY : ExperimentalSubmit
+
+# fast build rule for target.
+ExperimentalSubmit/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalSubmit.dir/build.make CMakeFiles/ExperimentalSubmit.dir/build
+.PHONY : ExperimentalSubmit/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousStart
+
+# Build rule for target.
+ContinuousStart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousStart
+.PHONY : ContinuousStart
+
+# fast build rule for target.
+ContinuousStart/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
+.PHONY : ContinuousStart/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousUpdate
+
+# Build rule for target.
+ContinuousUpdate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousUpdate
+.PHONY : ContinuousUpdate
+
+# fast build rule for target.
+ContinuousUpdate/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousUpdate.dir/build.make CMakeFiles/ContinuousUpdate.dir/build
+.PHONY : ContinuousUpdate/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousConfigure
+
+# Build rule for target.
+ContinuousConfigure: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousConfigure
+.PHONY : ContinuousConfigure
+
+# fast build rule for target.
+ContinuousConfigure/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/build
+.PHONY : ContinuousConfigure/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousBuild
+
+# Build rule for target.
+ContinuousBuild: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousBuild
+.PHONY : ContinuousBuild
+
+# fast build rule for target.
+ContinuousBuild/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousBuild.dir/build.make CMakeFiles/ContinuousBuild.dir/build
+.PHONY : ContinuousBuild/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousTest
+
+# Build rule for target.
+ContinuousTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousTest
+.PHONY : ContinuousTest
+
+# fast build rule for target.
+ContinuousTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousTest.dir/build.make CMakeFiles/ContinuousTest.dir/build
+.PHONY : ContinuousTest/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousCoverage
+
+# Build rule for target.
+ContinuousCoverage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousCoverage
+.PHONY : ContinuousCoverage
+
+# fast build rule for target.
+ContinuousCoverage/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/build
+.PHONY : ContinuousCoverage/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousMemCheck
+
+# Build rule for target.
+ContinuousMemCheck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousMemCheck
+.PHONY : ContinuousMemCheck
+
+# fast build rule for target.
+ContinuousMemCheck/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousMemCheck.dir/build.make CMakeFiles/ContinuousMemCheck.dir/build
+.PHONY : ContinuousMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousSubmit
+
+# Build rule for target.
+ContinuousSubmit: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousSubmit
+.PHONY : ContinuousSubmit
+
+# fast build rule for target.
+ContinuousSubmit/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousSubmit.dir/build.make CMakeFiles/ContinuousSubmit.dir/build
+.PHONY : ContinuousSubmit/fast
+
+#=============================================================================
+# Target rules for targets named sudoku_horny
+
+# Build rule for target.
+sudoku_horny: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sudoku_horny
+.PHONY : sudoku_horny
+
+# fast build rule for target.
+sudoku_horny/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/build
+.PHONY : sudoku_horny/fast
+
+Front.o: Front.cpp.o
+.PHONY : Front.o
 
 # target to build an object file
-Sudoku_horny_autogen/mocs_compilation.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/Sudoku_horny_autogen/mocs_compilation.cpp.o
-.PHONY : Sudoku_horny_autogen/mocs_compilation.cpp.o
+Front.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Front.cpp.o
+.PHONY : Front.cpp.o
 
-Sudoku_horny_autogen/mocs_compilation.i: Sudoku_horny_autogen/mocs_compilation.cpp.i
-.PHONY : Sudoku_horny_autogen/mocs_compilation.i
+Front.i: Front.cpp.i
+.PHONY : Front.i
 
 # target to preprocess a source file
-Sudoku_horny_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/Sudoku_horny_autogen/mocs_compilation.cpp.i
-.PHONY : Sudoku_horny_autogen/mocs_compilation.cpp.i
+Front.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Front.cpp.i
+.PHONY : Front.cpp.i
 
-Sudoku_horny_autogen/mocs_compilation.s: Sudoku_horny_autogen/mocs_compilation.cpp.s
-.PHONY : Sudoku_horny_autogen/mocs_compilation.s
+Front.s: Front.cpp.s
+.PHONY : Front.s
 
 # target to generate assembly for a file
-Sudoku_horny_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/Sudoku_horny_autogen/mocs_compilation.cpp.s
-.PHONY : Sudoku_horny_autogen/mocs_compilation.cpp.s
+Front.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Front.cpp.s
+.PHONY : Front.cpp.s
+
+generator.o: generator.cpp.o
+.PHONY : generator.o
+
+# target to build an object file
+generator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/generator.cpp.o
+.PHONY : generator.cpp.o
+
+generator.i: generator.cpp.i
+.PHONY : generator.i
+
+# target to preprocess a source file
+generator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/generator.cpp.i
+.PHONY : generator.cpp.i
+
+generator.s: generator.cpp.s
+.PHONY : generator.s
+
+# target to generate assembly for a file
+generator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/generator.cpp.s
+.PHONY : generator.cpp.s
+
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o
+
+# target to build an object file
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
+
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i
+
+# target to preprocess a source file
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i
+
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s
+
+# target to generate assembly for a file
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s
+
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.o: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.o
+
+# target to build an object file
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
+
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.i: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.i
+
+# target to preprocess a source file
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i
+
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.s: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.s
+
+# target to generate assembly for a file
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s
+
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.o: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.o
+
+# target to build an object file
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
+
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.i: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.i
+
+# target to preprocess a source file
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i
+
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.s: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.s
+
+# target to generate assembly for a file
+home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
+.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -179,7 +656,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -187,32 +664,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-mainwindow.o: mainwindow.cpp.o
-.PHONY : mainwindow.o
-
-# target to build an object file
-mainwindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/mainwindow.cpp.o
-.PHONY : mainwindow.cpp.o
-
-mainwindow.i: mainwindow.cpp.i
-.PHONY : mainwindow.i
-
-# target to preprocess a source file
-mainwindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/mainwindow.cpp.i
-.PHONY : mainwindow.cpp.i
-
-mainwindow.s: mainwindow.cpp.s
-.PHONY : mainwindow.s
-
-# target to generate assembly for a file
-mainwindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Sudoku_horny.dir/build.make CMakeFiles/Sudoku_horny.dir/mainwindow.cpp.s
-.PHONY : mainwindow.cpp.s
 
 # Help Target
 help:
@@ -221,18 +674,57 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... package"
+	@echo "... package_source"
 	@echo "... rebuild_cache"
-	@echo "... Sudoku_horny_autogen"
-	@echo "... Sudoku_horny"
-	@echo "... Sudoku_horny_autogen/mocs_compilation.o"
-	@echo "... Sudoku_horny_autogen/mocs_compilation.i"
-	@echo "... Sudoku_horny_autogen/mocs_compilation.s"
+	@echo "... test"
+	@echo "... Continuous"
+	@echo "... ContinuousBuild"
+	@echo "... ContinuousConfigure"
+	@echo "... ContinuousCoverage"
+	@echo "... ContinuousMemCheck"
+	@echo "... ContinuousStart"
+	@echo "... ContinuousSubmit"
+	@echo "... ContinuousTest"
+	@echo "... ContinuousUpdate"
+	@echo "... Experimental"
+	@echo "... ExperimentalBuild"
+	@echo "... ExperimentalConfigure"
+	@echo "... ExperimentalCoverage"
+	@echo "... ExperimentalMemCheck"
+	@echo "... ExperimentalStart"
+	@echo "... ExperimentalSubmit"
+	@echo "... ExperimentalTest"
+	@echo "... ExperimentalUpdate"
+	@echo "... Nightly"
+	@echo "... NightlyBuild"
+	@echo "... NightlyConfigure"
+	@echo "... NightlyCoverage"
+	@echo "... NightlyMemCheck"
+	@echo "... NightlyMemoryCheck"
+	@echo "... NightlyStart"
+	@echo "... NightlySubmit"
+	@echo "... NightlyTest"
+	@echo "... NightlyUpdate"
+	@echo "... sudoku_horny"
+	@echo "... Front.o"
+	@echo "... Front.i"
+	@echo "... Front.s"
+	@echo "... generator.o"
+	@echo "... generator.i"
+	@echo "... generator.s"
+	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o"
+	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i"
+	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s"
+	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.o"
+	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.i"
+	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.s"
+	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.o"
+	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.i"
+	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... mainwindow.o"
-	@echo "... mainwindow.i"
-	@echo "... mainwindow.s"
 .PHONY : help
 
 

@@ -1,67 +1,42 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.0.0)
+project(sudoku_horny VERSION 0.1.0 LANGUAGES C CXX)
 
-project(Sudoku_horny VERSION 0.1 LANGUAGES CXX)
+include(CTest)
+enable_testing()
+find_package(FLTK)
+# /home/admin/Documents/MIPT/C_plus_plus/Lessons_seminars/Seminars/fltk_graph
+set(LIB_DIR /home/alexunder/Documents/MIPT/C_projects/sudoku_horny)
+set(ADD_LIBS_DIR /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries)
+set(TARGET sudoku_horny)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
-
-set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads REQUIRED)
-
-set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+set( HEADERS
+    ${ADD_LIBS_DIR}/Graph_lib/fltk.h
+    ${ADD_LIBS_DIR}/Graph_lib/Graph.h
+    ${ADD_LIBS_DIR}/Graph_lib/GUI.h
+    ${ADD_LIBS_DIR}/Graph_lib/Point.h
+    ${ADD_LIBS_DIR}/Graph_lib/Simple_window.h
+    ${ADD_LIBS_DIR}/Graph_lib/Window.h
+    Front.h
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(Sudoku_horny
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
+set( SOURCES
+    ${ADD_LIBS_DIR}/Graph_lib/Graph.cpp
+    ${ADD_LIBS_DIR}/Graph_lib/GUI.cpp
+    ${ADD_LIBS_DIR}/Graph_lib/Window.cpp
+    Front.cpp
+    generator.cpp
+)
+
+set( PROGRAMS
+    main.cpp
     )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Sudoku_horny APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
-else()
-    if(ANDROID)
-        add_library(Sudoku_horny SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(Sudoku_horny
-            ${PROJECT_SOURCES}
-        )
-    endif()
-endif()
 
-target_link_libraries(Sudoku_horny PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+add_executable(${TARGET} ${HEADERS} ${SOURCES} ${PROGRAMS})
 
-set_target_properties(Sudoku_horny PROPERTIES
-    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-)
+add_compile_options(-I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -lfltk -lX11)
+add_compile_options(-Wall -Wextra -pedantic -Og -o)
+target_link_libraries(sudoku_horny -lfltk_images -lfltk -lX11)
 
-unset( GTK_PATH)
-
-target_link_libraries(Sudoku_horny PRIVATE Threads::Threads)
-
-
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(Sudoku_horny)
-endif()
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
