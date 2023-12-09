@@ -26,62 +26,42 @@ void SDButton::resetTextColor() {
     text.set_color(Color::black);
 }
 
+Sudoku::Sudoku(Graph_lib::Point p, int ww, int hh, const std::string& lb) :
+    SubWindow{Point{400, 200}, ww, hh, lb, this}, start{9, std::vector<int>(9)},
+    finish{9, std::vector<int>(9)}, play_buttons{9, std::vector<SDButton*>(9)} {
+        play_win = this;
+        menu = new SubWindow{300, 400, lb, this};
+        end_win = new SubWindow{400, 300, lb, this};
+        play_win->hide();
+        end_win->hide();
+        active_window = menu;
 
-void Sudoku::init_start_finish_pos(std::vector<std::vector<int>> st,
-    std::vector<std::vector<int>> fin) {
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            if (st[i][j] > 9) {
-                throw "Invalid number for default sudoku";
-            }
-        }
-    }
+        Graph_lib::Text* t = new Graph_lib::Text{Point{100, 50}, "Menu"};
+        t->set_font_size(40);
+        t->set_color(Graph_lib::Color::dark_green);
+        Graph_lib::Button* bt_start = new Graph_lib::Button{Point{90, 130},
+            120, 50, "Start", cb_next};
+        attach(*t);
+        attach(*bt_start);
+        menu_buttons[0] = bt_start;
+    };
 
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            std::string label = std::to_string(st[i][j]);
-            buttons[i][j] = new SDButton{Point{300 + 63*i, 20 + 63*j}, 60, 60,
-                label == "0" ? "" : label, cb_clicked, i, j};
-            buttons[i][j]->text.set_font_size(38);
-            start[i][j] = st[i][j];
-            attach(*buttons[i][j]);
-        }
-    }
-    mistakes = new Graph_lib::Text{Point{50, 50}, "Mistakes: 0/3"};
-    attach(*mistakes);
-
-    for (int i = 1; i < 3; ++i) {
-        Rectangle* p = new Rectangle(Point{300 + 189*i - 3, 20}, Point{300 + 189*i, 584});
-        p->set_fill_color(Graph_lib::Color::black);
-        attach(*p);
-    }
-    for (int i = 1; i < 3; ++i) {
-        Rectangle* p = new Rectangle(Point{300, 20 + 189*i - 3}, Point{864, 20 + 189*i});
-        p->set_fill_color(Graph_lib::Color::black);
-        attach(*p);
-    }
-
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            if (fin[i][j] > 9 || ( fin[i][j] != start[i][j] && start[i][j] != 0)) {
-                throw "Invalid number for default sudoku";
-            }
-        }
-    }
-
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            finish[i][j] = fin[i][j];
-        }
-    }
+void Sudoku::attach(Graph_lib::Shape& s) {
+    active_window->Window::attach(s);
+    links_s.push_back(&s);
 }
 
+void Sudoku::attach(Graph_lib::Widget& s) {
+    active_window->Window::attach(s);
+    links_w.push_back(&s);
+}
+
+
 Sudoku::~Sudoku() {
-    Graph_lib::Window::~Window();
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            delete buttons[i][j];
-        }
+    for (std::size_t i = 0; i < links_s.size(); ++i) {
+        delete links_s[i];
     }
-    delete selected;
+    for (std::size_t i = 0; i < links_w.size(); ++i) {
+        delete links_w[i];
+    }
 }
