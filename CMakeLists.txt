@@ -25,6 +25,8 @@ set( SOURCES
     ${ADD_LIBS_DIR}/Graph_lib/Window.cpp
     Front.cpp
     generator.cpp
+    # deleting_cells.cpp
+    # amount_of_solutions.cpp
 )
 
 set( PROGRAMS

@@ -35,15 +35,38 @@ Sudoku::Sudoku(Graph_lib::Point p, int ww, int hh, const std::string& lb) :
         play_win->hide();
         end_win->hide();
         active_window = menu;
+        menu->size_range(300, 400, 300, 400);
+        play_win->size_range(ww, hh, ww, hh);
+        end_win->size_range(400, 300, 400, 300);
 
-        Graph_lib::Text* t = new Graph_lib::Text{Point{100, 50}, "Menu"};
-        t->set_font_size(40);
-        t->set_color(Graph_lib::Color::dark_green);
+        Graph_lib::Text* menu_text = new Graph_lib::Text{Point{80, 80}, "Sudoku"};
+        menu_text->set_font_size(40);
+        menu_text->set_color(Graph_lib::Color::dark_green);
         Graph_lib::Button* bt_start = new Graph_lib::Button{Point{90, 130},
             120, 50, "Start", cb_next};
-        attach(*t);
+        Graph_lib::Button* bt_difficulty = new Graph_lib::Button{Point{90, 200},
+            120, 50, "Difficulty", cb_menu_toggle};
+        Graph_lib::Button* bt_easy = new Graph_lib::Button{Point{90, 200},
+            120, 50, "Easy", cb_difficulty_toggle};
+        Graph_lib::Button* bt_medium = new Graph_lib::Button{Point{90, 270},
+            120, 50, "Medium", cb_difficulty_toggle};
+        Graph_lib::Button* bt_hard = new Graph_lib::Button{Point{90, 340},
+            120, 50, "Hard", cb_difficulty_toggle};
+        Graph_lib::Circle* chosen_diff = new Graph_lib::Circle{Point{250, 225}, 16};
+
+        attach(*menu_text);
         attach(*bt_start);
-        menu_buttons[0] = bt_start;
+        attach(*bt_difficulty);
+        attach(*bt_easy);
+        attach(*bt_medium);
+        attach(*bt_hard);
+        attach(*chosen_diff);
+        bt_easy->hide();
+        bt_medium->hide();
+        bt_hard->hide();
+        chosen_diff->set_fill_color(Graph_lib::Color::invisible);
+        chosen_diff->set_color(Graph_lib::Color::invisible);
+        menu_obj = {menu_text, bt_start, bt_difficulty, bt_easy, bt_medium, bt_hard, chosen_diff};
     };
 
 void Sudoku::attach(Graph_lib::Shape& s) {

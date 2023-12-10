@@ -57,6 +57,8 @@ public:
     void attach(Graph_lib::Shape& s);
     void attach(Graph_lib::Widget& s);
 
+    char difficulty{'E'};
+
     ~Sudoku();
 
 private:
@@ -64,8 +66,9 @@ private:
     Window* play_win;
     Window* end_win;
     Window* active_window;
+    bool difficulty_showed{False};
 
-    std::vector<Graph_lib::Button*> menu_buttons{3, nullptr};
+    std::vector<void*> menu_obj{7, nullptr};
     std::vector<Graph_lib::Button*> end_buttons{2, nullptr};
 
     std::vector<std::vector<int>> start;
@@ -86,6 +89,16 @@ private:
     static void cb_next(Graph_lib::Address, Graph_lib::Address addr) {
         auto& bt = Graph_lib::reference_to<Graph_lib::Button>(addr);
         dynamic_cast<SubWindow&>(bt.window()).parent->next_view();
+    }
+
+    static void cb_menu_toggle(Graph_lib::Address, Graph_lib::Address addr) {
+        auto& bt = Graph_lib::reference_to<Graph_lib::Button>(addr);
+        dynamic_cast<SubWindow&>(bt.window()).parent->menu_toggle();
+    }
+
+    static void cb_difficulty_toggle(Graph_lib::Address, Graph_lib::Address addr) {
+        auto& bt = Graph_lib::reference_to<Graph_lib::Button>(addr);
+        dynamic_cast<SubWindow&>(bt.window()).parent->difficulty_toggle(bt);
     }
 
     static void cb_quit(Graph_lib::Address, Graph_lib::Address addr) {
@@ -124,12 +137,45 @@ private:
             end_win->show();
             active_window->hide();
             active_window = end_win;
+            count_mistakes = 1;   // to next time don't re-create play_window, just change values
         }
         else if (active_window == end_win) {
             menu->show();
             active_window->hide();
             active_window = menu;
+            if (difficulty_showed) menu_toggle();
         }
+    }
+
+    void menu_toggle() {
+        if (!difficulty_showed) {
+            static_cast<Graph_lib::Button*>(menu_obj[2])->hide();
+            for (int i = 0; i < 3; ++i) {
+                static_cast<Graph_lib::Button*>(menu_obj[i+3])->show();
+            }
+            difficulty_showed = True;
+            static_cast<Graph_lib::Circle*>(menu_obj[6])->set_fill_color(Graph_lib::Color::cyan);
+            static_cast<Graph_lib::Circle*>(menu_obj[6])->set_fill_color(Graph_lib::Color::cyan);
+            return;
+        }
+        static_cast<Graph_lib::Button*>(menu_obj[2])->show();
+        for (int i = 0; i < 3; ++i) {
+            static_cast<Graph_lib::Button*>(menu_obj[i+3])->hide();
+        }
+        difficulty_showed = False;
+        static_cast<Graph_lib::Circle*>(menu_obj[6])->set_fill_color(Graph_lib::Color::invisible);
+        static_cast<Graph_lib::Circle*>(menu_obj[6])->set_color(Graph_lib::Color::invisible);
+    }
+
+    void difficulty_toggle(Graph_lib::Button& bt) {
+        int move_coeff = 0;
+        if (difficulty != bt.label[0]) {
+            move_coeff = ((difficulty + bt.label[0] == 'E' + 'H') + 1) * 70 * ( 1 + 2 * -( (difficulty ==
+                'M' || difficulty == 'E') && (bt.label[0] == 'H' || bt.label[0] == 'M') ) );
+        }
+        static_cast<Graph_lib::Circle*>(menu_obj[6])->move(0, -move_coeff);
+        difficulty = bt.label[0];
+        menu->redraw();
     }
 
     void generate_nums() {
@@ -160,6 +206,7 @@ private:
                     std::string lb = start[i][j] == 0 ? "" : std::to_string(start[i][j]);
                     play_buttons[i][j]->text.set_label(lb);
                     play_buttons[i][j]->resetColor();
+                    play_buttons[i][j]->resetTextColor();
                 }
             }
             count_mistakes = 0;
