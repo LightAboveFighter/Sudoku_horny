@@ -1,6 +1,8 @@
 CMakeFiles/sudoku_horny.dir/generator.cpp.o: \
  /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/generator.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+ /usr/include/stdc-predef.h \
+ /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/generator.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -197,4 +199,42 @@ CMakeFiles/sudoku_horny.dir/generator.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
- /usr/include/c++/11/pstl/glue_numeric_defs.h
+ /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h \
+ /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Point.h \
+ /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/fltk.h \
+ /usr/include/FL/Enumerations.H /usr/include/FL/abi-version.h \
+ /usr/include/FL/Fl_Export.H /usr/include/FL/fl_types.h \
+ /usr/include/FL/Fl.H /usr/include/FL/Fl_Export.H \
+ /usr/include/FL/fl_utf8.h /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/11/stdlib.h /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
+ /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
+ /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
+ /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
+ /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+ /usr/include/asm-generic/posix_types.h \
+ /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+ /usr/include/FL/Enumerations.H /usr/include/FL/Fl_Button.H \
+ /usr/include/FL/Fl_Widget.H /usr/include/FL/Fl_Input.H \
+ /usr/include/FL/Fl_Input_.H /usr/include/FL/Fl_Output.H \
+ /usr/include/FL/Fl_Input.H /usr/include/FL/Fl_Window.H \
+ /usr/include/FL/Fl_Group.H /usr/include/FL/Fl_Bitmap.H \
+ /usr/include/FL/Fl_Image.H /usr/include/FL/fl_draw.H /usr/include/FL/x.H \
+ /usr/include/X11/Xlib.h /usr/include/X11/X.h \
+ /usr/include/X11/Xfuncproto.h /usr/include/X11/Xosdefs.h \
+ /usr/include/X11/Xutil.h /usr/include/X11/keysym.h \
+ /usr/include/X11/keysymdef.h /usr/include/X11/Xatom.h \
+ /usr/include/FL/Fl_Window.H /usr/include/FL/Fl_Device.H \
+ /usr/include/FL/Fl_Plugin.H /usr/include/FL/Fl_Preferences.H \
+ /usr/include/FL/Fl_Image.H /usr/include/FL/Fl_Bitmap.H \
+ /usr/include/FL/Fl_Pixmap.H /usr/include/FL/Fl_RGB_Image.H \
+ /usr/include/FL/Fl_GIF_Image.H /usr/include/FL/Fl_Pixmap.H \
+ /usr/include/FL/Fl_JPEG_Image.H /usr/include/FL/Fl_PNG_Image.H

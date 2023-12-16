@@ -5,22 +5,32 @@
 #include "/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/fltk.h"
 #include "/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Simple_window.h"
 
-#include "generator.cpp"
+#include "generator.h"
 
 #include <string>
 #include <vector>
 #include <iostream>
 #include <random>
 
+/* Класс Судоку-кнопки, наследумый от стандартной кнопки Graph_lib
+Стандартной кнопке блокируется label - вместо него над ней рисуется
+Graph_lib::Text - так мы можем регулировать размер, шрифт и цвет значения кнопки.
+Также Судоку-кнопка запоминает свое расположение в таблице - колонка и строка,
+так как она будет находиться в Судоку-таблице.
+*/
 class SDButton : public Graph_lib::Button {
 public:
     Graph_lib::Text text;
+    // p - положение кнопки, ww - ширина, hh - высота, lb - значение кнопки,
+    // cb - callback функция, привязанная к кнопке, c - столбец положения
+    // в таблице, l - линия положения в таблице
     SDButton(Graph_lib::Point p, int ww, int hh,
         const std::string& lb, Graph_lib::Callback cb, int c, int l) :
         Graph_lib::Button{p, ww, hh, "", cb}, column{c}, line{l},
         text{Graph_lib::Point{p.x + 18, p.y + 42}, lb} {};
     
-    void attach(Graph_lib::Window& win) override;
+    void attach(Graph_lib::Window& win) override; //добавляем в attach присоединение
+                                                  //текста - Graph_lib::Text
     void setColor(Graph_lib::Color c);
     void setTextColor(Graph_lib::Color c);
     void resetColor();
@@ -36,11 +46,16 @@ private:
     int column{0};
     int line{0};
     int color;
-    using Graph_lib::Button::label;
+    using Graph_lib::Button::label;  //блокируем стандартное значение кнопки
 };
 
 class Sudoku;
 
+/* Класс под-окна, наследуемый от стандартного Graph_lib окна.
+Основное различие - это окно запоминает родителя, в нашем случае класс, вызвавший
+его. Это нужно для корректной работы callback-функций кнопок в нашем будущем
+классе Судоку-окна.
+*/
 class SubWindow : public Graph_lib::Window {
 public:
     SubWindow(int ww, int hh, const std::string& lb, Sudoku* par) :
@@ -50,6 +65,11 @@ public:
     Sudoku* parent;
 };
 
+/* Судоку-окно наследуется от SubWindow, в итоге создавая
+три окна - меню начала, само Судоку, и меню завершения(конец).
+К каждому окну прикреплено несколько кнопок, с помощью параметра parent
+кнопки в этих окнах могут отправлять свое нажатие нашему классу.
+*/
 class Sudoku : public SubWindow {
 public:
     Sudoku(Graph_lib::Point p, int ww, int hh, const std::string& lb);
@@ -57,6 +77,7 @@ public:
     void attach(Graph_lib::Shape& s);
     void attach(Graph_lib::Widget& s);
 
+    // Параметр выбранной сложности
     char difficulty{'E'};
 
     ~Sudoku();
@@ -65,51 +86,78 @@ private:
     Window* menu;
     Window* play_win;
     Window* end_win;
+    // Указатель на активное окно
     Window* active_window;
+
+    // Булевая переменная, отвечаюшая за то, показано ли под-меню сложности
+    // в первом окне.
     bool difficulty_showed{False};
 
+    // Все объекты первого окна
     std::vector<void*> menu_obj{7, nullptr};
-    std::vector<Graph_lib::Button*> end_buttons{2, nullptr};
+    // Все объекты конечного окна.
+    std::vector<void*> end_obj{3, nullptr};
 
+    // Массив начальных чисел игры
     std::vector<std::vector<int>> start;
+    // Массив конечных чисел игры
     std::vector<std::vector<int>> finish;
+    // Таблица указателей на кнопки игры
     std::vector<std::vector<SDButton*>> play_buttons;
+    // Указатель на выбранную кнопку
     SDButton* selected{nullptr};
+
+    // Указатель на строку количества ошибок
     Graph_lib::Text* mistakes;
+
+    // Счетчик количества ошибок. Его ненулевое значение в момент активации
+    // второго и третьего окна меняет пересоздание окон на из изменение.
     int count_mistakes;
 
+    // Вектор всех фигур нашего класса. Нужны
+    // для корректного удаления объекта, отсутствия утечек памяти.
     std::vector<Graph_lib::Shape*> links_s;
+    // Вектор всех виджетов нашего класса. Нужны
+    // для корректного удаления объекта, отсутствия утечек памяти.
     std::vector<Graph_lib::Widget*> links_w;
 
+    // Callback функция нажатия кнопки - члена таблицы Судоку.
     static void cb_play_clicked(Graph_lib::Address, Graph_lib::Address addr) {
         auto& bt = Graph_lib::reference_to<SDButton>(addr);
         dynamic_cast<SubWindow&>(bt.window()).parent->clicked(bt);
     }
 
+    // Сallback функция нажатия кнопки Start или New game,
+    // переключаящей активное окно.
     static void cb_next(Graph_lib::Address, Graph_lib::Address addr) {
         auto& bt = Graph_lib::reference_to<Graph_lib::Button>(addr);
         dynamic_cast<SubWindow&>(bt.window()).parent->next_view();
     }
 
+    // Сallback функция раскрытия подменю сложности в первом окне.
     static void cb_menu_toggle(Graph_lib::Address, Graph_lib::Address addr) {
         auto& bt = Graph_lib::reference_to<Graph_lib::Button>(addr);
         dynamic_cast<SubWindow&>(bt.window()).parent->menu_toggle();
     }
 
+    // Сallback функция изменения уровня сложности в подменю первого окна.
     static void cb_difficulty_toggle(Graph_lib::Address, Graph_lib::Address addr) {
         auto& bt = Graph_lib::reference_to<Graph_lib::Button>(addr);
         dynamic_cast<SubWindow&>(bt.window()).parent->difficulty_toggle(bt);
     }
 
+    // Сallback функция выхода из программы, реализуется при нажатии Quit в последнем окне.
     static void cb_quit(Graph_lib::Address, Graph_lib::Address addr) {
         auto& bt = Graph_lib::reference_to<Graph_lib::Button>(addr);
         dynamic_cast<SubWindow&>(bt.window()).parent->quit();
     }
 
+    // Завершает выполнение программы.
     void quit() {
         active_window->hide();
     }
 
+    // Реализует выделение и снятие выделения активной кнопки.
     void clicked(SDButton& bt) {
         if (!selected) {
             selected = &bt;
@@ -126,6 +174,7 @@ private:
         play_win->redraw();   
     }
 
+    // Смена активного окна.
     void next_view() {
         if (active_window == menu) {
             play_win->show();
@@ -137,7 +186,9 @@ private:
             end_win->show();
             active_window->hide();
             active_window = end_win;
-            count_mistakes = 1;   // to next time don't re-create play_window, just change values
+            count_mistakes = 1;
+            // ставим ненулевое значение количества ошибок для того, чтобы
+            // дать в будущем знать программе, что нужно изменить, а не пересоздать окно
         }
         else if (active_window == end_win) {
             menu->show();
@@ -147,6 +198,7 @@ private:
         }
     }
 
+    // Раскрытие подменю сложности в первом окне.
     void menu_toggle() {
         if (!difficulty_showed) {
             static_cast<Graph_lib::Button*>(menu_obj[2])->hide();
@@ -167,40 +219,39 @@ private:
         static_cast<Graph_lib::Circle*>(menu_obj[6])->set_color(Graph_lib::Color::invisible);
     }
 
+    // Изменение уровня сложности.
     void difficulty_toggle(Graph_lib::Button& bt) {
         int move_coeff = 0;
         if (difficulty != bt.label[0]) {
-            move_coeff = ((difficulty + bt.label[0] == 'E' + 'H') + 1) * 70 * ( 1 + 2 * -( (difficulty ==
-                'M' || difficulty == 'E') && (bt.label[0] == 'H' || bt.label[0] == 'M') ) );
+            move_coeff = ((difficulty + bt.label[0] == 'E' + 'H') + 1) * 70 * ( 1 + 2 * -(
+                (difficulty == 'M' || difficulty == 'E')&&(bt.label[0] == 'H' || bt.label[0] == 'M')));
         }
         static_cast<Graph_lib::Circle*>(menu_obj[6])->move(0, -move_coeff);
         difficulty = bt.label[0];
+        std::cout << difficulty << std::endl;
         menu->redraw();
     }
 
+    // Создание нового уровня - начальных и конечных чисел таблицы Судоку
+    // в зависимости от выбранного уровня сложности.
     void generate_nums() {
         Grid* table = new Grid;
         table->init();
         table->mix();
-        std::vector<std::vector<int>> st(9, std::vector<int>(9));
-        std::vector<std::vector<int>> fin = table->gettable();
-        for (int i = 0; i < 9; ++i) {
-            for (int j = 0; j < 9; ++j) {
-                if (Graph_lib::randint(1)) {
-                    st[i][j] = fin[i][j];
-                } else {
-                    st[i][j] = 0;
-                }
-            }
-        }
-        finish = fin;
-        start = st;
+        finish = table->gettable();
+        // table->erase(difficulty);
+        start = table->erased(difficulty);
     }
 
+    // Подготовка главного игрового окна - либо создание, либо
+    // изменение значений для следующей игры.
     void init_play() {
         selected = nullptr;
         generate_nums();
         if (count_mistakes) {
+            // если окно вызвано не первый раз - мы не пересоздаем его,
+            // а только меняем значения.
+
             for (int i = 0; i < 9; ++i) {
                 for (int j = 0; j < 9; ++j) {
                     std::string lb = start[i][j] == 0 ? "" : std::to_string(start[i][j]);
@@ -213,6 +264,8 @@ private:
             mistakes->set_label("Mistakes: 0/3");
             return;
         }
+        // в ином случае - создаем объекты второго окна
+
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 9; ++j) {
                 std::string label = std::to_string(start[i][j]);
@@ -240,6 +293,8 @@ private:
         attach(*mistakes);
     }
 
+    // Выделение активной линии, столбца, кнопок с такими же цифрами
+    // и самой активной кнопки.
     void activated(SDButton& bt) {
         std::string lb = bt.text.label();
         int col = bt.getcolumn();
@@ -262,10 +317,9 @@ private:
             }
         }
         bt.setColor(Graph_lib::Color::dark_magenta);
-        handle(Fl::event());
-
-
     }
+
+    // Установка всем кнопкам стандартного цвета.
     void deactivated(SDButton& bt) {
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 9; ++j) {
@@ -276,6 +330,7 @@ private:
         }
     }
 
+    // Проверка введенного пользователем числа.
     bool is_corr(SDButton& bt) {
         int col = bt.getcolumn();
         int lin = bt.getline();
@@ -284,10 +339,18 @@ private:
         return false;
     }
 
+    // Проверка успешного окончания игры.
     bool is_end() {
-        return start == finish;
+        if (start == finish) {
+            count_mistakes = 1;
+            return true;
+        }
+        return false;
     }
 
+    // При неверном введенном значении система увеличивает количество ошибок,
+    // и обновляет строку с информацией об ошибках.
+    // При 3х ошибках игра завершается.
     void mistake_occured() {
         selected->setColor(Graph_lib::Color::red);
         count_mistakes += 1;
@@ -296,14 +359,16 @@ private:
         if (count_mistakes == 3) game_over(False);
     }
 
+    // Перехват клавиатуры - при нажатии кнопок 1-9 программа
+    // фиксирует нажатие и изменяет значение активной кнопки.
     int handle(int event) {
         if (event == FL_KEYDOWN) {
-            if (*Fl::e_text == ']') std::cout << "5d5" << std::endl;
             if (selected){
                 int col = selected->getcolumn();
                 int lin = selected->getline();
 
-                if (selected->getColor() == Graph_lib::Color::red || selected->getTextColor() == Graph_lib::Color::red) {
+                if (selected->getColor() == Graph_lib::Color::red ||
+                        selected->getTextColor() == Graph_lib::Color::red) {
                     deactivated(*selected);
                     selected->text.set_label("");
                     start[col][lin] = 0;
@@ -332,15 +397,32 @@ private:
         return Graph_lib::Window::handle(event);
     }
 
+    // Завершение решения Судоку - вывод окна завершения со строкой выигрыша,
+    // в случае его первого вызова - инициализация.
     void game_over(bool winner) {
         next_view();
+        if (count_mistakes) {
+            init_end(winner);
+        } else {
+            static_cast<Graph_lib::Text*>(end_obj[0])->set_label(
+                winner ? "Congratulations:)" : "    You're lost:("
+                );
+        }
+    }
+
+    // Создание конечного окна.
+    void init_end(bool winner) {
         Graph_lib::Text* t = new Graph_lib::Text{Graph_lib::Point{30, 50},
             winner ? "Congratulations:)" : "    You're lost:("};
         t->set_font_size(40);
+        end_obj[0] = t;
+        
         Graph_lib::Button* bt_next = new Graph_lib::Button{Graph_lib::Point{20, 150},
             140, 60, "Next game", cb_next};
         Graph_lib::Button* bt_quit = new Graph_lib::Button{Graph_lib::Point{240, 150},
             140, 60, "Quit", cb_quit};
+        end_obj[1] = bt_next;
+        end_obj[2] = bt_quit;
 
         attach(*t);
         attach(*bt_next);

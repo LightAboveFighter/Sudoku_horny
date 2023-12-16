@@ -16,17 +16,18 @@ set( HEADERS
     ${ADD_LIBS_DIR}/Graph_lib/Point.h
     ${ADD_LIBS_DIR}/Graph_lib/Simple_window.h
     ${ADD_LIBS_DIR}/Graph_lib/Window.h
-    Front.h
+    # Front.h
+    # rddth.h
+    generator.h
+    # solutions.h
 )
 
 set( SOURCES
     ${ADD_LIBS_DIR}/Graph_lib/Graph.cpp
     ${ADD_LIBS_DIR}/Graph_lib/GUI.cpp
     ${ADD_LIBS_DIR}/Graph_lib/Window.cpp
-    Front.cpp
     generator.cpp
-    # deleting_cells.cpp
-    # amount_of_solutions.cpp
+    Front.cpp
 )
 
 set( PROGRAMS

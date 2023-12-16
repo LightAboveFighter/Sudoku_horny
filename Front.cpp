@@ -8,24 +8,29 @@ void SDButton::attach(Graph_lib::Window& win) {
     resetColor();
 }
 
+// Изменение цвета кнопки
 void SDButton::setColor(Color c) {
     pw->color(c.as_int());
     color = c.as_int();
 }
 
+// Изменение цвета значения кнопки
 void SDButton::setTextColor(Color c) {
     text.set_color(c);
 }
 
+// Сброс цвета кнопки
 void SDButton::resetColor() {
     pw->color(Color::white);
     color = Color::white;
 }
 
+// Сброс цвета значения кнопки
 void SDButton::resetTextColor() {
     text.set_color(Color::black);
 }
 
+// p - положение окна, ww - ширина окна, hh - высота окна, lb - строка с названием окна
 Sudoku::Sudoku(Graph_lib::Point p, int ww, int hh, const std::string& lb) :
     SubWindow{Point{400, 200}, ww, hh, lb, this}, start{9, std::vector<int>(9)},
     finish{9, std::vector<int>(9)}, play_buttons{9, std::vector<SDButton*>(9)} {
@@ -68,17 +73,22 @@ Sudoku::Sudoku(Graph_lib::Point p, int ww, int hh, const std::string& lb) :
         chosen_diff->set_color(Graph_lib::Color::invisible);
         menu_obj = {menu_text, bt_start, bt_difficulty, bt_easy, bt_medium, bt_hard, chosen_diff};
     };
-
+// Присоединение любой фигуры или виджета происходит
+// только к активному окну.
+// Параллельно происходит записывание прикрепленного объекта в соответствуюший вектор
+// для дальнейшего корректного их удаления.
 void Sudoku::attach(Graph_lib::Shape& s) {
     active_window->Window::attach(s);
     links_s.push_back(&s);
 }
-
+// Присоединение любой фигуры или виджета происходит
+// только к активному окну.
+// Параллельно происходит записывание прикрепленного объекта в соответствуюший вектор
+// для дальнейшего корректного их удаления.
 void Sudoku::attach(Graph_lib::Widget& s) {
     active_window->Window::attach(s);
     links_w.push_back(&s);
 }
-
 
 Sudoku::~Sudoku() {
     for (std::size_t i = 0; i < links_s.size(); ++i) {

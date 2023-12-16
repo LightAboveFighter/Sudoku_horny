@@ -111,24 +111,10 @@ CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_librar
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp -o CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
 
-CMakeFiles/sudoku_horny.dir/Front.cpp.o: CMakeFiles/sudoku_horny.dir/flags.make
-CMakeFiles/sudoku_horny.dir/Front.cpp.o: ../Front.cpp
-CMakeFiles/sudoku_horny.dir/Front.cpp.o: CMakeFiles/sudoku_horny.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sudoku_horny.dir/Front.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sudoku_horny.dir/Front.cpp.o -MF CMakeFiles/sudoku_horny.dir/Front.cpp.o.d -o CMakeFiles/sudoku_horny.dir/Front.cpp.o -c /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/Front.cpp
-
-CMakeFiles/sudoku_horny.dir/Front.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudoku_horny.dir/Front.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/Front.cpp > CMakeFiles/sudoku_horny.dir/Front.cpp.i
-
-CMakeFiles/sudoku_horny.dir/Front.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku_horny.dir/Front.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/Front.cpp -o CMakeFiles/sudoku_horny.dir/Front.cpp.s
-
 CMakeFiles/sudoku_horny.dir/generator.cpp.o: CMakeFiles/sudoku_horny.dir/flags.make
 CMakeFiles/sudoku_horny.dir/generator.cpp.o: ../generator.cpp
 CMakeFiles/sudoku_horny.dir/generator.cpp.o: CMakeFiles/sudoku_horny.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sudoku_horny.dir/generator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sudoku_horny.dir/generator.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sudoku_horny.dir/generator.cpp.o -MF CMakeFiles/sudoku_horny.dir/generator.cpp.o.d -o CMakeFiles/sudoku_horny.dir/generator.cpp.o -c /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/generator.cpp
 
 CMakeFiles/sudoku_horny.dir/generator.cpp.i: cmake_force
@@ -138,6 +124,20 @@ CMakeFiles/sudoku_horny.dir/generator.cpp.i: cmake_force
 CMakeFiles/sudoku_horny.dir/generator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku_horny.dir/generator.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/generator.cpp -o CMakeFiles/sudoku_horny.dir/generator.cpp.s
+
+CMakeFiles/sudoku_horny.dir/Front.cpp.o: CMakeFiles/sudoku_horny.dir/flags.make
+CMakeFiles/sudoku_horny.dir/Front.cpp.o: ../Front.cpp
+CMakeFiles/sudoku_horny.dir/Front.cpp.o: CMakeFiles/sudoku_horny.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sudoku_horny.dir/Front.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sudoku_horny.dir/Front.cpp.o -MF CMakeFiles/sudoku_horny.dir/Front.cpp.o.d -o CMakeFiles/sudoku_horny.dir/Front.cpp.o -c /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/Front.cpp
+
+CMakeFiles/sudoku_horny.dir/Front.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudoku_horny.dir/Front.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/Front.cpp > CMakeFiles/sudoku_horny.dir/Front.cpp.i
+
+CMakeFiles/sudoku_horny.dir/Front.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku_horny.dir/Front.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/Front.cpp -o CMakeFiles/sudoku_horny.dir/Front.cpp.s
 
 CMakeFiles/sudoku_horny.dir/main.cpp.o: CMakeFiles/sudoku_horny.dir/flags.make
 CMakeFiles/sudoku_horny.dir/main.cpp.o: ../main.cpp
@@ -158,8 +158,8 @@ sudoku_horny_OBJECTS = \
 "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o" \
 "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o" \
 "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o" \
-"CMakeFiles/sudoku_horny.dir/Front.cpp.o" \
 "CMakeFiles/sudoku_horny.dir/generator.cpp.o" \
+"CMakeFiles/sudoku_horny.dir/Front.cpp.o" \
 "CMakeFiles/sudoku_horny.dir/main.cpp.o"
 
 # External object files for target sudoku_horny
@@ -168,8 +168,8 @@ sudoku_horny_EXTERNAL_OBJECTS =
 sudoku_horny: CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
-sudoku_horny: CMakeFiles/sudoku_horny.dir/Front.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/generator.cpp.o
+sudoku_horny: CMakeFiles/sudoku_horny.dir/Front.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/main.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/build.make
 sudoku_horny: CMakeFiles/sudoku_horny.dir/link.txt
