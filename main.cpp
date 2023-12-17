@@ -7,20 +7,6 @@
 #include <string>
 
 int main() {
-    using namespace Graph_lib;
-    std::cout << "ebat" << std::endl;
-
-    Sudoku t{Point{0,0}, 1100, 600, "Sudoku"};
-    // Grid d;
-    // d.init();
-    // std::cout << "nahui" << std::endl;
-    // d.mix();
-    // d.show();
-    // std::cout << "suka" << std::endl;
-    // sshow(d.erased('E'));
-    // std::cout << "huinya" << std::endl;
-    // d.show();
-    // std::cout << "blya" << std::endl;
-
-    return gui_main();
+    Sudoku t{Graph_lib::Point{0,0}, 1100, 600, "Sudoku"};
+    return Graph_lib::gui_main();
 }

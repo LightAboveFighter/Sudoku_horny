@@ -77,9 +77,6 @@ public:
     void attach(Graph_lib::Shape& s);
     void attach(Graph_lib::Widget& s);
 
-    // Параметр выбранной сложности
-    char difficulty{'E'};
-
     ~Sudoku();
 
 private:
@@ -89,6 +86,9 @@ private:
     // Указатель на активное окно
     Window* active_window;
 
+    // Параметр выбранной сложности
+    char difficulty{'E'};
+
     // Булевая переменная, отвечаюшая за то, показано ли под-меню сложности
     // в первом окне.
     bool difficulty_showed{False};
@@ -97,6 +97,10 @@ private:
     std::vector<void*> menu_obj{7, nullptr};
     // Все объекты конечного окна.
     std::vector<void*> end_obj{3, nullptr};
+
+    // Параметр для деактивации изменений игрового поля после окончания игры
+    // (Но с возможностью смотреть на это поле)
+    bool is_playing{false};
 
     // Массив начальных чисел игры
     std::vector<std::vector<int>> start;
@@ -155,15 +159,17 @@ private:
     // Завершает выполнение программы.
     void quit() {
         active_window->hide();
+        play_win->hide();
     }
 
     // Реализует выделение и снятие выделения активной кнопки.
     void clicked(SDButton& bt) {
+        if (!is_playing) return;
         if (!selected) {
             selected = &bt;
             activated(*selected);
         } else {
-            deactivated(*selected);
+            deactivated();
             if (selected == &bt) {
                 selected = nullptr;
             } else {
@@ -178,13 +184,14 @@ private:
     void next_view() {
         if (active_window == menu) {
             play_win->show();
+            is_playing = true;
             active_window->hide();
             active_window = play_win;
             init_play();
         }
         else if (active_window == play_win) {
             end_win->show();
-            active_window->hide();
+            is_playing = false;
             active_window = end_win;
             count_mistakes = 1;
             // ставим ненулевое значение количества ошибок для того, чтобы
@@ -193,6 +200,7 @@ private:
         else if (active_window == end_win) {
             menu->show();
             active_window->hide();
+            play_win->hide();
             active_window = menu;
             if (difficulty_showed) menu_toggle();
         }
@@ -228,7 +236,6 @@ private:
         }
         static_cast<Graph_lib::Circle*>(menu_obj[6])->move(0, -move_coeff);
         difficulty = bt.label[0];
-        std::cout << difficulty << std::endl;
         menu->redraw();
     }
 
@@ -293,34 +300,55 @@ private:
         attach(*mistakes);
     }
 
-    // Выделение активной линии, столбца, кнопок с такими же цифрами
-    // и самой активной кнопки.
-    void activated(SDButton& bt) {
-        std::string lb = bt.text.label();
-        int col = bt.getcolumn();
-        int lin = bt.getline();
+    void active_line(int line) {
+        for (int i = 0; i < 9; ++i) {
+            play_buttons[i][line]->setColor(Graph_lib::Color::green);
+        }
+    }
 
+    void active_column(int col) {
+        for (int i = 0; i < 9; ++i) {
+            play_buttons[col][i]->setColor(Graph_lib::Color::green);
+        }
+    }
+
+    void active_square(int col, int line) {
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 9; ++j) {
-                if ( j == lin ) {
+                if ( j/3 == line/3 && i/3 == col/3) {
                     play_buttons[i][j]->setColor(Graph_lib::Color::green);
                 }
-                if ( i == col ) {
-                    play_buttons[i][j]->setColor(Graph_lib::Color::green);
-                }
-                if ( j/3 == lin/3 && i/3 == col/3) {
-                    play_buttons[i][j]->setColor(Graph_lib::Color::green);
-                }
+            }
+        }
+    }
+
+    void active_labels(const std::string& lb) {
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 9; ++j) {
                 if ( play_buttons[i][j]->text.label() == lb && lb != "") {
                     play_buttons[i][j]->setColor(Graph_lib::Color::cyan);
                 }
             }
         }
-        bt.setColor(Graph_lib::Color::dark_magenta);
+    }
+
+    // Выделение активной линии, столбца, кнопок с такими же цифрами
+    // и самой активной кнопки.
+    void activated(SDButton& bt) {
+        if (is_playing) {
+            int col = bt.getcolumn();
+            int line = bt.getline();
+            active_column(col);
+            active_line(line);
+            active_square(col, line);
+        }
+        std::string lb = bt.text.label();
+        active_labels(lb);
+        if (is_playing) bt.setColor(Graph_lib::Color::dark_magenta);
     }
 
     // Установка всем кнопкам стандартного цвета.
-    void deactivated(SDButton& bt) {
+    void deactivated() {
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 9; ++j) {
                 if (play_buttons[i][j]->getColor() == Graph_lib::Color::red) 
@@ -356,7 +384,7 @@ private:
         count_mistakes += 1;
         std::string str = "Mistakes: " + std::to_string(count_mistakes) + "/3";
         mistakes->set_label(str);
-        if (count_mistakes == 3) game_over(False);
+        if (count_mistakes == 3) game_over(false);
     }
 
     // Перехват клавиатуры - при нажатии кнопок 1-9 программа
@@ -364,12 +392,13 @@ private:
     int handle(int event) {
         if (event == FL_KEYDOWN) {
             if (selected){
+                if (!is_playing) return Graph_lib::Window::handle(event);
                 int col = selected->getcolumn();
                 int lin = selected->getline();
 
                 if (selected->getColor() == Graph_lib::Color::red ||
                         selected->getTextColor() == Graph_lib::Color::red) {
-                    deactivated(*selected);
+                    deactivated();
                     selected->text.set_label("");
                     start[col][lin] = 0;
                     selected->resetTextColor();
@@ -387,10 +416,18 @@ private:
                         activated(*selected);
                         if (!is_corr(*selected)) {
                             mistake_occured();
-                        }
-                        if (is_end()) game_over(True);
+                        } else if(is_end()) game_over(true);
                         play_win->redraw();
                     }
+            } else{
+                char val = *Fl::e_text;
+                if (val >= '1' && val <= '9') {
+                    char str[2];
+                    sprintf(str, "%c", val);
+                    deactivated();
+                    active_labels(str);
+                    redraw();
+                }
             }
             return 1;
         }
@@ -405,7 +442,7 @@ private:
             init_end(winner);
         } else {
             static_cast<Graph_lib::Text*>(end_obj[0])->set_label(
-                winner ? "Congratulations:)" : "    You're lost:("
+                winner ? "Congratulations:)" : "      You lose:("
                 );
         }
     }
@@ -413,7 +450,7 @@ private:
     // Создание конечного окна.
     void init_end(bool winner) {
         Graph_lib::Text* t = new Graph_lib::Text{Graph_lib::Point{30, 50},
-            winner ? "Congratulations:)" : "    You're lost:("};
+            winner ? "Congratulations:)" : "      You lose:("};
         t->set_font_size(40);
         end_obj[0] = t;
         

@@ -73,6 +73,7 @@ Sudoku::Sudoku(Graph_lib::Point p, int ww, int hh, const std::string& lb) :
         chosen_diff->set_color(Graph_lib::Color::invisible);
         menu_obj = {menu_text, bt_start, bt_difficulty, bt_easy, bt_medium, bt_hard, chosen_diff};
     };
+
 // Присоединение любой фигуры или виджета происходит
 // только к активному окну.
 // Параллельно происходит записывание прикрепленного объекта в соответствуюший вектор

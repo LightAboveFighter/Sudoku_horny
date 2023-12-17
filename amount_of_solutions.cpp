@@ -2,33 +2,36 @@
 #include <vector>
 #include <algorithm>
 
-
-std::vector<int> check_cage(std::vector<std::vector<int>> const &grid, const int &cage_row, const int &cage_column)
-{                                                                    // находим недоступные варианты
+std::vector<int> check_cage(std::vector<std::vector<int>> const &grid,
+    const int &cage_row, const int &cage_column)
+{                                             // находим недоступные варианты
     std::vector<int> blocked_values{},
                      available_values = {1, 2 ,3 , 4, 5, 6, 7, 8, 9};
 
-    for (int row = 3*(cage_row/3); row<(3*(1 + cage_row/3)); row++)  // тут мы чекаем квадрат
+    for (int row = 3*(cage_row/3); row<(3*(1 + cage_row/3)); row++)
+                                                   // тут мы проверяем квадрат
         for (int col = 3*(cage_column/3); col<(3*(1 + cage_column/3)); col++)
             if (grid[row][col] != 0)
                 blocked_values.push_back(grid[row][col]);
 
-    for (int row=0; row < grid.size(); row++)                        // а тут чекаем строку
+    for (int row=0; row < grid.size(); row++)      // а тут проверяем строку
         if (grid[row][cage_column] != 0)
             blocked_values.push_back(grid[row][cage_column]);
     
-    for (int col=0; col < grid.size(); col++)                        // и тут чекаем столбец
+    for (int col=0; col < grid.size(); col++)      // и тут проверяем столбец
         if (grid[cage_row][col] != 0)
             blocked_values.push_back(grid[cage_row][col]);
     
-    // sort(blocked_values.begin(), blocked_values.end());
     if (!blocked_values.empty())
-        for (int i = 0; i < blocked_values.size(); i++)              // стираем все невозможные значения из вектора возможных
-            available_values.erase(std::remove(available_values.begin(), available_values.end(), blocked_values[i]), available_values.end());  
+        for (int i = 0; i < blocked_values.size(); i++) 
+                                // стираем все невозможные значения из вектора возможных
+            available_values.erase(std::remove(available_values.begin(),
+                available_values.end(), blocked_values[i]), available_values.end());  
 
-    return available_values;                                         // возвращаем возможные для подстановки цифры
+    return available_values;    // возвращаем возможные для подстановки цифры
 }
 
+// Возвращает количество возможных решений судоку.
 int solutions(std::vector<std::vector<int>> const &grid)
 {
     int amount_of_solutions = 0,

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny
+CMAKE_SOURCE_DIR = /home/alexunder/Documents/MIPT/Sudoku_horny
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build
+CMAKE_BINARY_DIR = /home/alexunder/Documents/MIPT/Sudoku_horny/build
 
 # Utility rule file for NightlyMemoryCheck.
 
@@ -82,6 +82,6 @@ CMakeFiles/NightlyMemoryCheck.dir/clean:
 .PHONY : CMakeFiles/NightlyMemoryCheck.dir/clean
 
 CMakeFiles/NightlyMemoryCheck.dir/depend:
-	cd /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/build/CMakeFiles/NightlyMemoryCheck.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alexunder/Documents/MIPT/Sudoku_horny/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alexunder/Documents/MIPT/Sudoku_horny /home/alexunder/Documents/MIPT/Sudoku_horny /home/alexunder/Documents/MIPT/Sudoku_horny/build /home/alexunder/Documents/MIPT/Sudoku_horny/build /home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles/NightlyMemoryCheck.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NightlyMemoryCheck.dir/depend
 

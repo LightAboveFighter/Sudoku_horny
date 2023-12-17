@@ -1,7 +1,7 @@
 CMakeFiles/sudoku_horny.dir/generator.cpp.o: \
- /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/generator.cpp \
+ /home/alexunder/Documents/MIPT/Sudoku_horny/generator.cpp \
  /usr/include/stdc-predef.h \
- /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/generator.h \
+ /home/alexunder/Documents/MIPT/Sudoku_horny/generator.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

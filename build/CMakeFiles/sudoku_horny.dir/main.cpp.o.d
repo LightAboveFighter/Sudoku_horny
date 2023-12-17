@@ -1,5 +1,5 @@
 CMakeFiles/sudoku_horny.dir/main.cpp.o: \
- /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/main.cpp \
+ /home/alexunder/Documents/MIPT/Sudoku_horny/main.cpp \
  /usr/include/stdc-predef.h \
  /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h \
  /usr/include/c++/11/cmath \
@@ -211,9 +211,9 @@ CMakeFiles/sudoku_horny.dir/main.cpp.o: \
  /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.h \
  /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h \
  /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.h \
- /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/Front.h \
+ /home/alexunder/Documents/MIPT/Sudoku_horny/Front.h \
  /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/fltk.h \
- /home/alexunder/Documents/MIPT/C_projects/Sudoku_horny/generator.h \
+ /home/alexunder/Documents/MIPT/Sudoku_horny/generator.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
