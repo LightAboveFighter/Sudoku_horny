@@ -111,19 +111,19 @@ CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_librar
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp -o CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
 
-CMakeFiles/sudoku_horny.dir/generator.cpp.o: CMakeFiles/sudoku_horny.dir/flags.make
-CMakeFiles/sudoku_horny.dir/generator.cpp.o: ../generator.cpp
-CMakeFiles/sudoku_horny.dir/generator.cpp.o: CMakeFiles/sudoku_horny.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sudoku_horny.dir/generator.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sudoku_horny.dir/generator.cpp.o -MF CMakeFiles/sudoku_horny.dir/generator.cpp.o.d -o CMakeFiles/sudoku_horny.dir/generator.cpp.o -c /home/alexunder/Documents/MIPT/Sudoku_horny/generator.cpp
+CMakeFiles/sudoku_horny.dir/Grid.cpp.o: CMakeFiles/sudoku_horny.dir/flags.make
+CMakeFiles/sudoku_horny.dir/Grid.cpp.o: ../Grid.cpp
+CMakeFiles/sudoku_horny.dir/Grid.cpp.o: CMakeFiles/sudoku_horny.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sudoku_horny.dir/Grid.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sudoku_horny.dir/Grid.cpp.o -MF CMakeFiles/sudoku_horny.dir/Grid.cpp.o.d -o CMakeFiles/sudoku_horny.dir/Grid.cpp.o -c /home/alexunder/Documents/MIPT/Sudoku_horny/Grid.cpp
 
-CMakeFiles/sudoku_horny.dir/generator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudoku_horny.dir/generator.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alexunder/Documents/MIPT/Sudoku_horny/generator.cpp > CMakeFiles/sudoku_horny.dir/generator.cpp.i
+CMakeFiles/sudoku_horny.dir/Grid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudoku_horny.dir/Grid.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alexunder/Documents/MIPT/Sudoku_horny/Grid.cpp > CMakeFiles/sudoku_horny.dir/Grid.cpp.i
 
-CMakeFiles/sudoku_horny.dir/generator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku_horny.dir/generator.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alexunder/Documents/MIPT/Sudoku_horny/generator.cpp -o CMakeFiles/sudoku_horny.dir/generator.cpp.s
+CMakeFiles/sudoku_horny.dir/Grid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku_horny.dir/Grid.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alexunder/Documents/MIPT/Sudoku_horny/Grid.cpp -o CMakeFiles/sudoku_horny.dir/Grid.cpp.s
 
 CMakeFiles/sudoku_horny.dir/Front.cpp.o: CMakeFiles/sudoku_horny.dir/flags.make
 CMakeFiles/sudoku_horny.dir/Front.cpp.o: ../Front.cpp
@@ -139,10 +139,24 @@ CMakeFiles/sudoku_horny.dir/Front.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku_horny.dir/Front.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alexunder/Documents/MIPT/Sudoku_horny/Front.cpp -o CMakeFiles/sudoku_horny.dir/Front.cpp.s
 
+CMakeFiles/sudoku_horny.dir/SDButton.cpp.o: CMakeFiles/sudoku_horny.dir/flags.make
+CMakeFiles/sudoku_horny.dir/SDButton.cpp.o: ../SDButton.cpp
+CMakeFiles/sudoku_horny.dir/SDButton.cpp.o: CMakeFiles/sudoku_horny.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sudoku_horny.dir/SDButton.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sudoku_horny.dir/SDButton.cpp.o -MF CMakeFiles/sudoku_horny.dir/SDButton.cpp.o.d -o CMakeFiles/sudoku_horny.dir/SDButton.cpp.o -c /home/alexunder/Documents/MIPT/Sudoku_horny/SDButton.cpp
+
+CMakeFiles/sudoku_horny.dir/SDButton.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudoku_horny.dir/SDButton.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alexunder/Documents/MIPT/Sudoku_horny/SDButton.cpp > CMakeFiles/sudoku_horny.dir/SDButton.cpp.i
+
+CMakeFiles/sudoku_horny.dir/SDButton.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku_horny.dir/SDButton.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alexunder/Documents/MIPT/Sudoku_horny/SDButton.cpp -o CMakeFiles/sudoku_horny.dir/SDButton.cpp.s
+
 CMakeFiles/sudoku_horny.dir/main.cpp.o: CMakeFiles/sudoku_horny.dir/flags.make
 CMakeFiles/sudoku_horny.dir/main.cpp.o: ../main.cpp
 CMakeFiles/sudoku_horny.dir/main.cpp.o: CMakeFiles/sudoku_horny.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sudoku_horny.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sudoku_horny.dir/main.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sudoku_horny.dir/main.cpp.o -MF CMakeFiles/sudoku_horny.dir/main.cpp.o.d -o CMakeFiles/sudoku_horny.dir/main.cpp.o -c /home/alexunder/Documents/MIPT/Sudoku_horny/main.cpp
 
 CMakeFiles/sudoku_horny.dir/main.cpp.i: cmake_force
@@ -158,8 +172,9 @@ sudoku_horny_OBJECTS = \
 "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o" \
 "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o" \
 "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o" \
-"CMakeFiles/sudoku_horny.dir/generator.cpp.o" \
+"CMakeFiles/sudoku_horny.dir/Grid.cpp.o" \
 "CMakeFiles/sudoku_horny.dir/Front.cpp.o" \
+"CMakeFiles/sudoku_horny.dir/SDButton.cpp.o" \
 "CMakeFiles/sudoku_horny.dir/main.cpp.o"
 
 # External object files for target sudoku_horny
@@ -168,12 +183,13 @@ sudoku_horny_EXTERNAL_OBJECTS =
 sudoku_horny: CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
-sudoku_horny: CMakeFiles/sudoku_horny.dir/generator.cpp.o
+sudoku_horny: CMakeFiles/sudoku_horny.dir/Grid.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/Front.cpp.o
+sudoku_horny: CMakeFiles/sudoku_horny.dir/SDButton.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/main.cpp.o
 sudoku_horny: CMakeFiles/sudoku_horny.dir/build.make
 sudoku_horny: CMakeFiles/sudoku_horny.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable sudoku_horny"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable sudoku_horny"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sudoku_horny.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

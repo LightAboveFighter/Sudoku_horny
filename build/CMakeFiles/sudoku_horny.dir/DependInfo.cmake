@@ -9,7 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/alexunder/Documents/MIPT/Sudoku_horny/Front.cpp" "CMakeFiles/sudoku_horny.dir/Front.cpp.o" "gcc" "CMakeFiles/sudoku_horny.dir/Front.cpp.o.d"
-  "/home/alexunder/Documents/MIPT/Sudoku_horny/generator.cpp" "CMakeFiles/sudoku_horny.dir/generator.cpp.o" "gcc" "CMakeFiles/sudoku_horny.dir/generator.cpp.o.d"
+  "/home/alexunder/Documents/MIPT/Sudoku_horny/Grid.cpp" "CMakeFiles/sudoku_horny.dir/Grid.cpp.o" "gcc" "CMakeFiles/sudoku_horny.dir/Grid.cpp.o.d"
+  "/home/alexunder/Documents/MIPT/Sudoku_horny/SDButton.cpp" "CMakeFiles/sudoku_horny.dir/SDButton.cpp.o" "gcc" "CMakeFiles/sudoku_horny.dir/SDButton.cpp.o.d"
   "/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp" "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o" "gcc" "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o.d"
   "/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp" "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o" "gcc" "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o.d"
   "/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp" "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o" "gcc" "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o.d"

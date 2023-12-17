@@ -547,29 +547,53 @@ Front.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Front.cpp.s
 .PHONY : Front.cpp.s
 
-generator.o: generator.cpp.o
-.PHONY : generator.o
+Grid.o: Grid.cpp.o
+.PHONY : Grid.o
 
 # target to build an object file
-generator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/generator.cpp.o
-.PHONY : generator.cpp.o
+Grid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Grid.cpp.o
+.PHONY : Grid.cpp.o
 
-generator.i: generator.cpp.i
-.PHONY : generator.i
+Grid.i: Grid.cpp.i
+.PHONY : Grid.i
 
 # target to preprocess a source file
-generator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/generator.cpp.i
-.PHONY : generator.cpp.i
+Grid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Grid.cpp.i
+.PHONY : Grid.cpp.i
 
-generator.s: generator.cpp.s
-.PHONY : generator.s
+Grid.s: Grid.cpp.s
+.PHONY : Grid.s
 
 # target to generate assembly for a file
-generator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/generator.cpp.s
-.PHONY : generator.cpp.s
+Grid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Grid.cpp.s
+.PHONY : Grid.cpp.s
+
+SDButton.o: SDButton.cpp.o
+.PHONY : SDButton.o
+
+# target to build an object file
+SDButton.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/SDButton.cpp.o
+.PHONY : SDButton.cpp.o
+
+SDButton.i: SDButton.cpp.i
+.PHONY : SDButton.i
+
+# target to preprocess a source file
+SDButton.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/SDButton.cpp.i
+.PHONY : SDButton.cpp.i
+
+SDButton.s: SDButton.cpp.s
+.PHONY : SDButton.s
+
+# target to generate assembly for a file
+SDButton.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/SDButton.cpp.s
+.PHONY : SDButton.cpp.s
 
 home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
 .PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o
@@ -710,9 +734,12 @@ help:
 	@echo "... Front.o"
 	@echo "... Front.i"
 	@echo "... Front.s"
-	@echo "... generator.o"
-	@echo "... generator.i"
-	@echo "... generator.s"
+	@echo "... Grid.o"
+	@echo "... Grid.i"
+	@echo "... Grid.s"
+	@echo "... SDButton.o"
+	@echo "... SDButton.i"
+	@echo "... SDButton.s"
 	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o"
 	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i"
 	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s"

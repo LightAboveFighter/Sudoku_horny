@@ -1,5 +1,4 @@
-#include "/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h"
-#include "/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Simple_window.h"
+#include "Graph_lib/Graph.h"
 
 #include "Front.h"
 #include <iostream>

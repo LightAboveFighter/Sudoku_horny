@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/g++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries
 
 CXX_FLAGS = -g
 

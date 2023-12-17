@@ -207,13 +207,8 @@ CMakeFiles/sudoku_horny.dir/main.cpp.o: \
  /usr/include/FL/Fl_Pixmap.H /usr/include/FL/Fl_RGB_Image.H \
  /usr/include/FL/Fl_GIF_Image.H /usr/include/FL/Fl_Pixmap.H \
  /usr/include/FL/Fl_JPEG_Image.H /usr/include/FL/Fl_PNG_Image.H \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Simple_window.h \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.h \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.h \
  /home/alexunder/Documents/MIPT/Sudoku_horny/Front.h \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/fltk.h \
- /home/alexunder/Documents/MIPT/Sudoku_horny/generator.h \
+ /home/alexunder/Documents/MIPT/Sudoku_horny/Grid.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
@@ -242,4 +237,9 @@ CMakeFiles/sudoku_horny.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
- /usr/include/c++/11/pstl/glue_numeric_defs.h
+ /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /home/alexunder/Documents/MIPT/Sudoku_horny/SDButton.h \
+ /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Simple_window.h \
+ /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.h \
+ /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h \
+ /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.h
