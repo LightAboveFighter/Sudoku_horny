@@ -837,12 +837,12 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 CMakeFiles/sudoku_horny.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target sudoku_horny"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target sudoku_horny"
 .PHONY : CMakeFiles/sudoku_horny.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/sudoku_horny.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sudoku_horny.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles 0
 .PHONY : CMakeFiles/sudoku_horny.dir/rule

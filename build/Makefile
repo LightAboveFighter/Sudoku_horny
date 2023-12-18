@@ -571,6 +571,30 @@ Grid.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Grid.cpp.s
 .PHONY : Grid.cpp.s
 
+Nicolas.o: Nicolas.cpp.o
+.PHONY : Nicolas.o
+
+# target to build an object file
+Nicolas.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Nicolas.cpp.o
+.PHONY : Nicolas.cpp.o
+
+Nicolas.i: Nicolas.cpp.i
+.PHONY : Nicolas.i
+
+# target to preprocess a source file
+Nicolas.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Nicolas.cpp.i
+.PHONY : Nicolas.cpp.i
+
+Nicolas.s: Nicolas.cpp.s
+.PHONY : Nicolas.s
+
+# target to generate assembly for a file
+Nicolas.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/Nicolas.cpp.s
+.PHONY : Nicolas.cpp.s
+
 SDButton.o: SDButton.cpp.o
 .PHONY : SDButton.o
 
@@ -737,6 +761,9 @@ help:
 	@echo "... Grid.o"
 	@echo "... Grid.i"
 	@echo "... Grid.s"
+	@echo "... Nicolas.o"
+	@echo "... Nicolas.i"
+	@echo "... Nicolas.s"
 	@echo "... SDButton.o"
 	@echo "... SDButton.i"
 	@echo "... SDButton.s"

@@ -19,6 +19,8 @@ set( HEADERS
     Front.h
     Grid.h
     SDButton.h
+    Nicolas.h
+    # amount_of_solutions.h
 )
 
 set( SOURCES
@@ -28,6 +30,7 @@ set( SOURCES
     Grid.cpp
     Front.cpp
     SDButton.cpp
+    Nicolas.cpp
 )
 
 set( PROGRAMS

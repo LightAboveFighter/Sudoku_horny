@@ -238,6 +238,7 @@ CMakeFiles/sudoku_horny.dir/main.cpp.o: \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /home/alexunder/Documents/MIPT/Sudoku_horny/Nicolas.h \
  /home/alexunder/Documents/MIPT/Sudoku_horny/SDButton.h \
  /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Simple_window.h \
  /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.h \

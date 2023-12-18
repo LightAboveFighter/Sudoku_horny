@@ -25,12 +25,12 @@ public:
     Sudoku* parent;
 };
 
-/* Судоку-окно наследуется от SubWindow, в итоге создавая
+/* Судоку-окно наследуется от Window, в итоге создавая
 три окна - меню начала, само Судоку, и меню завершения(конец).
 К каждому окну прикреплено несколько кнопок, с помощью параметра parent
 кнопки в этих окнах могут отправлять свое нажатие нашему классу.
 */
-class Sudoku : public SubWindow {
+class Sudoku : public Graph_lib::Window {
 public:
     Sudoku(Graph_lib::Point p, int ww, int hh, const std::string& lb);
 
@@ -38,6 +38,8 @@ public:
     void attach(Graph_lib::Widget& w);
     void detach(Graph_lib::Shape& s);
     void detach(Graph_lib::Widget& w);
+
+    const int sudoku_size = 9;
 
     ~Sudoku();
 
@@ -57,6 +59,8 @@ private:
 
     // Все объекты первого окна
     std::vector<void*> menu_obj{7, nullptr};
+    // Restart кнопка игрового окна
+    Graph_lib::Button* play_restart;
     // Все объекты конечного окна.
     std::vector<void*> end_obj{3, nullptr};
 
@@ -92,7 +96,13 @@ private:
     // Callback функция нажатия кнопки - члена таблицы Судоку.
     static void cb_play_clicked(Graph_lib::Address, Graph_lib::Address addr) {
         auto& bt = Graph_lib::reference_to<SDButton>(addr);
-        dynamic_cast<SubWindow&>(bt.window()).parent->clicked(bt);
+        dynamic_cast<Sudoku&>(bt.window()).clicked(bt);
+    }
+
+    static void swap_to_start(Graph_lib::Address, Graph_lib::Address addr) {
+        auto& bt = Graph_lib::reference_to<SDButton>(addr);
+        dynamic_cast<Sudoku&>(bt.window()).game_over(false);
+        dynamic_cast<Sudoku&>(bt.window()).next_view();
     }
 
     // Сallback функция нажатия кнопки Start или New game,
@@ -129,11 +139,11 @@ private:
     // Реализует выделение и снятие выделения активной кнопки.
     void clicked(SDButton& bt) {
         if (!is_playing) return;
+        deactivated();
         if (!selected) {
             selected = &bt;
             activated(*selected);
         } else {
-            deactivated();
             if (selected == &bt) {
                 selected = nullptr;
             } else {
@@ -207,10 +217,7 @@ private:
         table->init();
         table->mix();
         finish = table->gettable();
-        std::vector<std::vector<int>> s = finish;
-        s[4][8] = 0;
-        // table->erase(difficulty);
-        start = s;
+        start = table->erased(difficulty);
     }
 
     // Подготовка главного игрового окна - либо создание, либо
@@ -222,8 +229,8 @@ private:
             // если окно вызвано не первый раз - мы не пересоздаем его,
             // а только меняем значения.
 
-            for (int i = 0; i < 9; ++i) {
-                for (int j = 0; j < 9; ++j) {
+            for (int i = 0; i <sudoku_size; ++i) {
+                for (int j = 0; j <sudoku_size; ++j) {
                     std::string lb = start[i][j] == 0 ? "" : std::to_string(start[i][j]);
                     play_buttons[i][j]->text.set_label(lb);
                     play_buttons[i][j]->resetColor();
@@ -232,12 +239,13 @@ private:
             }
             count_mistakes = 0;
             mistakes->set_label("Mistakes: 0/3");
+            play_restart->show();
             return;
         }
         // в ином случае - создаем объекты второго окна
 
-        for (int i = 0; i < 9; ++i) {
-            for (int j = 0; j < 9; ++j) {
+        for (int i = 0; i <sudoku_size; ++i) {
+            for (int j = 0; j <sudoku_size; ++j) {
                 std::string label = std::to_string(start[i][j]);
                 play_buttons[i][j] = new SDButton{Graph_lib::Point{300 + 63*i, 20 + 63*j}, 60, 60,
                     label == "0" ? "" : label, cb_play_clicked, i, j};
@@ -258,29 +266,33 @@ private:
             p->set_fill_color(Graph_lib::Color::black);
             attach(*p);
         }
+        Graph_lib::Button* bt_restart = new Graph_lib::Button{ Graph_lib::Point{50, 500}, 180, 75,
+                    "Restart", swap_to_start};
         mistakes = new Graph_lib::Text{Graph_lib::Point{50, 50}, "Mistakes: 0/3"};
         mistakes->set_font_size(25);
+        play_restart = bt_restart;
         attach(*mistakes);
+        attach(*bt_restart);
     }
 
     // Выделение кнопок в одной линии.
     void active_line(int line) {
-        for (int i = 0; i < 9; ++i) {
+        for (int i = 0; i <sudoku_size; ++i) {
             play_buttons[i][line]->setColor(Graph_lib::Color::green);
         }
     }
 
     // Выделение кнопок в одной колонке.
     void active_column(int col) {
-        for (int i = 0; i < 9; ++i) {
+        for (int i = 0; i <sudoku_size; ++i) {
             play_buttons[col][i]->setColor(Graph_lib::Color::green);
         }
     }
 
     // Выделение кнопок в одном квадрате.
     void active_square(int col, int line) {
-        for (int i = 0; i < 9; ++i) {
-            for (int j = 0; j < 9; ++j) {
+        for (int i = 0; i <sudoku_size; ++i) {
+            for (int j = 0; j <sudoku_size; ++j) {
                 if ( j/3 == line/3 && i/3 == col/3) {
                     play_buttons[i][j]->setColor(Graph_lib::Color::green);
                 }
@@ -290,8 +302,8 @@ private:
 
     // Выделение кнопок с одним значением.
     void active_labels(const std::string& lb) {
-        for (int i = 0; i < 9; ++i) {
-            for (int j = 0; j < 9; ++j) {
+        for (int i = 0; i <sudoku_size; ++i) {
+            for (int j = 0; j <sudoku_size; ++j) {
                 if ( play_buttons[i][j]->text.label() == lb && lb != "" &&
                     play_buttons[i][j]->getTextColor() != Graph_lib::Color::red) {
                         play_buttons[i][j]->setColor(Graph_lib::Color::cyan);
@@ -317,8 +329,8 @@ private:
 
     // Установка всем кнопкам стандартного цвета.
     void deactivated() {
-        for (int i = 0; i < 9; ++i) {
-            for (int j = 0; j < 9; ++j) {
+        for (int i = 0; i <sudoku_size; ++i) {
+            for (int j = 0; j <sudoku_size; ++j) {
                 if (play_buttons[i][j]->getColor() == Graph_lib::Color::red) 
                     selected->setTextColor(Graph_lib::Color::red);
                 play_buttons[i][j]->setColor(Graph_lib::Color::white);
@@ -330,7 +342,7 @@ private:
     bool is_corr(SDButton& bt) {
         int col = bt.getcolumn();
         int lin = bt.getline();
-        if (bt.text.label() == std::to_string(finish[col][lin]) || bt.text.label() == "")
+        if (bt.text.label() == std::to_string(finish[col][lin]))
             return true;
         return false;
     }
@@ -351,7 +363,8 @@ private:
         count_mistakes += 1;
         std::string str = "Mistakes: " + std::to_string(count_mistakes) + "/3";
         mistakes->set_label(str);
-        if (count_mistakes == 3) game_over(false);
+        if (count_mistakes == 3)
+            game_over(false);
     }
 
     // Перехват клавиатуры - при нажатии кнопок 1-9 программа
@@ -380,11 +393,19 @@ private:
                         selected->text.set_label(Fl::e_text);
                         start[col][lin] = *Fl::e_text - 48;
                         selected->text.set_color(FL_INACTIVE_COLOR);
-                        activated(*selected);
+                        deactivated();
+                        active_labels(selected->text.label());
                         if (!is_corr(*selected)) {
                             mistake_occured();
                         } else if(is_end()) game_over(true);
                         play_win->redraw();
+                    } else {
+                        char str[2];
+                        sprintf(str, "%c", val);
+                        selected = nullptr;
+                        deactivated();
+                        active_labels(str);
+                        redraw();
                     }
             } else{
                 char val = *Fl::e_text;
@@ -405,6 +426,7 @@ private:
     // в случае его первого вызова - инициализация.
     void game_over(bool winner) {
         next_view();
+        play_restart->hide();
         if (first_init) {
             init_end(winner);
             first_init = false;
@@ -414,8 +436,8 @@ private:
                 );
         }
         if (winner) return;
-        for (int i = 0; i < 9; ++i) {
-            for ( int j = 0; j < 9; ++j) {
+        for (int i = 0; i <sudoku_size; ++i) {
+            for ( int j = 0; j <sudoku_size; ++j) {
                 if (play_buttons[i][j]->text.label() == "") {
                     play_buttons[i][j]->text.set_label(std::to_string(finish[i][j]));
                     play_buttons[i][j]->setTextColor(Graph_lib::Color::dark_green);

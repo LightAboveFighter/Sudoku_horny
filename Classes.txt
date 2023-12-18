@@ -7,12 +7,12 @@ public:
     Sudoku* parent;
 };
 
-/* Судоку-окно наследуется от SubWindow, в итоге создавая
+/* Судоку-окно наследуется от Window, в итоге создавая
 три окна - меню начала, само Судоку, и меню завершения(конец).
 К каждому окну прикреплено несколько кнопок, с помощью параметра parent
 кнопки в этих окнах могут отправлять свое нажатие нашему классу.
 */
-class Sudoku : public SubWindow {
+class Sudoku : public Window {
 public:
     Sudoku(Graph_lib::Point p, int ww, int hh, const std::string& lb);
 

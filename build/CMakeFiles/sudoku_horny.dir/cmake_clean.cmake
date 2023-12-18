@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sudoku_horny.dir/Front.cpp.o.d"
   "CMakeFiles/sudoku_horny.dir/Grid.cpp.o"
   "CMakeFiles/sudoku_horny.dir/Grid.cpp.o.d"
+  "CMakeFiles/sudoku_horny.dir/Nicolas.cpp.o"
+  "CMakeFiles/sudoku_horny.dir/Nicolas.cpp.o.d"
   "CMakeFiles/sudoku_horny.dir/SDButton.cpp.o"
   "CMakeFiles/sudoku_horny.dir/SDButton.cpp.o.d"
   "CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o"

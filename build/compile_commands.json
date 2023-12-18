@@ -31,6 +31,11 @@
 },
 {
   "directory": "/home/alexunder/Documents/MIPT/Sudoku_horny/build",
+  "command": "/usr/bin/g++  -I/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries -g -o CMakeFiles/sudoku_horny.dir/Nicolas.cpp.o -c /home/alexunder/Documents/MIPT/Sudoku_horny/Nicolas.cpp",
+  "file": "/home/alexunder/Documents/MIPT/Sudoku_horny/Nicolas.cpp"
+},
+{
+  "directory": "/home/alexunder/Documents/MIPT/Sudoku_horny/build",
   "command": "/usr/bin/g++  -I/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries -g -o CMakeFiles/sudoku_horny.dir/main.cpp.o -c /home/alexunder/Documents/MIPT/Sudoku_horny/main.cpp",
   "file": "/home/alexunder/Documents/MIPT/Sudoku_horny/main.cpp"
 }

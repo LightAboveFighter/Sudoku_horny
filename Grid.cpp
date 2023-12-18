@@ -143,7 +143,8 @@ std::vector<std::vector<int>> Grid::gettable() {
 
 // Возвращает нерешенное Судоку, в зависимости от переданной сложности.
 std::vector<std::vector<int>> Grid::erased(char given_difficulty) {
-    std::vector<std::vector<int>> res = table;
+    std::vector<std::vector<Nicolas>> res;
+    std::vector<std::vector<int>> res_int = table;
     int amount_erase = 0;
     switch (given_difficulty){ // Исходя из ожидаемой пользователем сложности определяем,
                             //сколько клеточек надо стереть.
@@ -151,7 +152,7 @@ std::vector<std::vector<int>> Grid::erased(char given_difficulty) {
             amount_erase = 57; //61 слишком редко достигается
             break;
         case 'M':
-            amount_erase = 51;
+            amount_erase = 51; //51
             break;
         case 'E':
             amount_erase = 41;
@@ -169,6 +170,11 @@ std::vector<std::vector<int>> Grid::erased(char given_difficulty) {
             vars[i*9 + j] = std::vector<int>{i, j};
         }
     }
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    // std::uniform_int_distribution<> dist_i(0, 8); // генерируем случайный номер ячейки
+    // std::uniform_int_distribution<> dist_j(0, 8);
+    // int i = dist_i(gen), j = dist_j(gen);
     int count = 0;
     int iter = 0;
     bool next = false;
@@ -179,18 +185,22 @@ std::vector<std::vector<int>> Grid::erased(char given_difficulty) {
 
         // На всякий случай, если создание длится слишком долго, начинаем процесс 
         // заново, но не чаще двух раз.
-        if (vars.size() <= 1 || clock() - time_before > 10000000) {
+        if (clock() - time_before > 1500000) {
             ++count;
-            if (count == 2) break;
+            if (count == 4) break;
             iter = 0;
-            res = table;
+            // res = make_Nicolas_grid(table);
+            res_int = table;
             vars = ref;
             time_before = clock();
-            // std::cout << "ignored" << std::endl;
+            std::cout << "ignored" << std::endl;
         }
 
-        std::vector<int>& x = vars[Graph_lib::randint(vars.size()-1)];
-        if ( res[x[0]][x[1]] == 0 ) {
+        std::uniform_int_distribution<> dist(0, vars.size() - 1);
+        int num = dist(gen);
+        std::vector<int>& x = vars[num];
+        if ( res_int[x[0]][x[1]] == 0 ) {
+            std::cout << "what&&&" << std::endl;
             for (int k = 0; k < vars.size(); ++k) {
                 if (vars[k] == x) {
                     vars.erase(vars.begin() + k);
@@ -204,9 +214,19 @@ std::vector<std::vector<int>> Grid::erased(char given_difficulty) {
             continue;
         }
 
-        res[x[0]][x[1]] = 0;
+        // res[x[0]][x[1]].cage_put(0);
+        res_int[x[0]][x[1]] = 0;
+        res = make_Nicolas_grid(res_int);
+        // res = make_Nicolas_grid(res_int);
         if ( solutions(res) != 1 ) {
-            res[x[0]][x[1]] = table[x[0]][x[1]];
+            // res[x[0]][x[1]].cage_put(table[x[0]][x[1]]);
+            res_int[x[0]][x[1]] = table[x[0]][x[1]];
+            // for (int k = 0; k < vars.size(); ++k) {
+            //     if (vars[k] == x) {
+            //         vars.erase(vars.begin() + k);
+            //         break;
+            //     }
+            // }
             continue;
         }
 
@@ -221,7 +241,6 @@ std::vector<std::vector<int>> Grid::erased(char given_difficulty) {
             }
         }
         ++iter;
-        // std::cout << iter << std::endl;
     }
-    return res; 
+    return res_int; 
 }

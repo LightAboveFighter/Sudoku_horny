@@ -4,7 +4,7 @@ using namespace Graph_lib;
 
 // p - положение окна, ww - ширина окна, hh - высота окна, lb - строка с названием окна
 Sudoku::Sudoku(Graph_lib::Point p, int ww, int hh, const std::string& lb) :
-    SubWindow{Point{400, 200}, ww, hh, lb, this}, start{9, std::vector<int>(9)},
+    Window{Point{400, 200}, ww, hh, lb}, start{9, std::vector<int>(9)},
     finish{9, std::vector<int>(9)}, play_buttons{9, std::vector<SDButton*>(9)} {
         play_win = this;
         menu = new SubWindow{300, 400, lb, this};
