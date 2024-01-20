@@ -20,7 +20,6 @@ set( HEADERS
     Grid.h
     SDButton.h
     Nicolas.h
-    # amount_of_solutions.h
 )
 
 set( SOURCES
