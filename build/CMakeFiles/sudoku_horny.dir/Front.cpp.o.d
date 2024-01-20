@@ -1,8 +1,8 @@
 CMakeFiles/sudoku_horny.dir/Front.cpp.o: \
- /home/alexunder/Documents/MIPT/Sudoku_horny/Front.cpp \
+ /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/Front.cpp \
  /usr/include/stdc-predef.h \
- /home/alexunder/Documents/MIPT/Sudoku_horny/Front.h \
- /home/alexunder/Documents/MIPT/Sudoku_horny/Grid.h \
+ /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/Front.h \
+ /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/Grid.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -201,13 +201,13 @@ CMakeFiles/sudoku_horny.dir/Front.cpp.o: \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
- /home/alexunder/Documents/MIPT/Sudoku_horny/Nicolas.h \
- /home/alexunder/Documents/MIPT/Sudoku_horny/SDButton.h \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Simple_window.h \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.h \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Point.h \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/fltk.h \
+ /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/Nicolas.h \
+ /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/SDButton.h \
+ /media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Simple_window.h \
+ /media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.h \
+ /media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h \
+ /media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Point.h \
+ /media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/fltk.h \
  /usr/include/FL/Enumerations.H /usr/include/FL/abi-version.h \
  /usr/include/FL/Fl_Export.H /usr/include/FL/fl_types.h \
  /usr/include/FL/Fl.H /usr/include/FL/Fl_Export.H \
@@ -243,4 +243,4 @@ CMakeFiles/sudoku_horny.dir/Front.cpp.o: \
  /usr/include/FL/Fl_Pixmap.H /usr/include/FL/Fl_RGB_Image.H \
  /usr/include/FL/Fl_GIF_Image.H /usr/include/FL/Fl_Pixmap.H \
  /usr/include/FL/Fl_JPEG_Image.H /usr/include/FL/Fl_PNG_Image.H \
- /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.h
+ /media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.h

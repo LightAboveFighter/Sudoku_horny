@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/alexunder/Documents/MIPT/Sudoku_horny
-BuildDirectory: /home/alexunder/Documents/MIPT/Sudoku_horny/build
+SourceDirectory: /media/alexunder/Data/MIPT/C_projects/Sudoku_horny
+BuildDirectory: /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -26,7 +26,7 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/alexunder/Documents/MIPT/Sudoku_horny"
+ConfigureCommand: "/usr/bin/cmake" "/media/alexunder/Data/MIPT/C_projects/Sudoku_horny"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alexunder/Documents/MIPT/Sudoku_horny
+CMAKE_SOURCE_DIR = /media/alexunder/Data/MIPT/C_projects/Sudoku_horny
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alexunder/Documents/MIPT/Sudoku_horny/build
+CMAKE_BINARY_DIR = /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build
 
 # Utility rule file for NightlyStart.
 
@@ -82,6 +82,6 @@ CMakeFiles/NightlyStart.dir/clean:
 .PHONY : CMakeFiles/NightlyStart.dir/clean
 
 CMakeFiles/NightlyStart.dir/depend:
-	cd /home/alexunder/Documents/MIPT/Sudoku_horny/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alexunder/Documents/MIPT/Sudoku_horny /home/alexunder/Documents/MIPT/Sudoku_horny /home/alexunder/Documents/MIPT/Sudoku_horny/build /home/alexunder/Documents/MIPT/Sudoku_horny/build /home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles/NightlyStart.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/alexunder/Data/MIPT/C_projects/Sudoku_horny /media/alexunder/Data/MIPT/C_projects/Sudoku_horny /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build/CMakeFiles/NightlyStart.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NightlyStart.dir/depend
 

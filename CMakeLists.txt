@@ -5,8 +5,8 @@ include(CTest)
 enable_testing()
 find_package(FLTK)
 # /home/admin/Documents/MIPT/C_plus_plus/Lessons_seminars/Seminars/fltk_graph
-set(LIB_DIR /home/alexunder/Documents/MIPT/C_projects/sudoku_horny)
-set(ADD_LIBS_DIR /home/alexunder/Documents/MIPT/C_plus_plus/add_libraries)
+set(LIB_DIR /media/alexunder/Data/MIPT/C_projects/sudoku_horny)
+set(ADD_LIBS_DIR /media/alexunder/Data/MIPT/C_plus_plus/add_libraries)
 set(TARGET sudoku_horny)
 
 set( HEADERS

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alexunder/Documents/MIPT/Sudoku_horny
+CMAKE_SOURCE_DIR = /media/alexunder/Data/MIPT/C_projects/Sudoku_horny
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alexunder/Documents/MIPT/Sudoku_horny/build
+CMAKE_BINARY_DIR = /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/alexunder/Documents/MIPT/Sudoku_horny/build/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -117,9 +117,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles /home/alexunder/Documents/MIPT/Sudoku_horny/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build/CMakeFiles /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexunder/Documents/MIPT/Sudoku_horny/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -619,78 +619,6 @@ SDButton.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/SDButton.cpp.s
 .PHONY : SDButton.cpp.s
 
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o
-
-# target to build an object file
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
-
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i
-
-# target to preprocess a source file
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i
-
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s
-
-# target to generate assembly for a file
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s
-
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.o: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.o
-
-# target to build an object file
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
-
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.i: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.i
-
-# target to preprocess a source file
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i
-
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.s: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.s
-
-# target to generate assembly for a file
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s
-
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.o: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.o
-
-# target to build an object file
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
-
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.i: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.i
-
-# target to preprocess a source file
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i
-
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.s: home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.s
-
-# target to generate assembly for a file
-home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
-.PHONY : home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
-
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -714,6 +642,78 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o: media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o
+
+# target to build an object file
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.o
+
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i: media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i
+
+# target to preprocess a source file
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.i
+
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s: media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s
+
+# target to generate assembly for a file
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.cpp.s
+
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.o: media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.o
+
+# target to build an object file
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.o
+
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.i: media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.i
+
+# target to preprocess a source file
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.i
+
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.s: media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.s
+
+# target to generate assembly for a file
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.cpp.s
+
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.o: media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.o
+
+# target to build an object file
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.o
+
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.i: media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.i
+
+# target to preprocess a source file
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.i
+
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.s: media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.s
+
+# target to generate assembly for a file
+media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sudoku_horny.dir/build.make CMakeFiles/sudoku_horny.dir/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
+.PHONY : media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.cpp.s
 
 # Help Target
 help:
@@ -767,18 +767,18 @@ help:
 	@echo "... SDButton.o"
 	@echo "... SDButton.i"
 	@echo "... SDButton.s"
-	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o"
-	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i"
-	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s"
-	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.o"
-	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.i"
-	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.s"
-	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.o"
-	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.i"
-	@echo "... home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.o"
+	@echo "... media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.i"
+	@echo "... media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/GUI.s"
+	@echo "... media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.o"
+	@echo "... media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.i"
+	@echo "... media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.s"
+	@echo "... media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.o"
+	@echo "... media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.i"
+	@echo "... media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Window.s"
 .PHONY : help
 
 

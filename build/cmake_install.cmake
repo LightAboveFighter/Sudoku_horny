@@ -1,4 +1,4 @@
-# Install script for directory: /home/alexunder/Documents/MIPT/Sudoku_horny
+# Install script for directory: /media/alexunder/Data/MIPT/C_projects/Sudoku_horny
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/alexunder/Documents/MIPT/Sudoku_horny/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/alexunder/Data/MIPT/C_projects/Sudoku_horny/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

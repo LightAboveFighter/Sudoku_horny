@@ -1,5 +1,5 @@
 #include "Grid.h"
-#include "/home/alexunder/Documents/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h"
+#include "/media/alexunder/Data/MIPT/C_plus_plus/add_libraries/Graph_lib/Graph.h"
 #include <random>
 #include <time.h>
 
